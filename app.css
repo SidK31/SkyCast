@@ -1,0 +1,16 @@
+/* SkyCast 2.1 premium component layer */
+:root{--radius-xl:28px;--radius-lg:20px;--radius-md:15px;--ease:cubic-bezier(.2,.8,.2,1)}
+*{transition:background-color .25s var(--ease),border-color .25s var(--ease),color .2s var(--ease),transform .25s var(--ease),opacity .25s var(--ease)}
+button:active{transform:scale(.97)!important}
+.current-card{position:relative;overflow:hidden}
+.current-card:after{content:"";position:absolute;inset:auto -80px -120px auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(98,213,255,.13),transparent 68%);pointer-events:none}
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.insight{padding:15px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:15px}
+.insight span{display:block;color:var(--muted);font-size:11px;margin-bottom:7px}.insight strong{font-size:14px}.insight small{display:block;color:var(--muted);margin-top:5px;font-size:11px}
+.section-block{animation:rise .55s var(--ease) both}.section-block:nth-of-type(2){animation-delay:.05s}.section-block:nth-of-type(3){animation-delay:.1s}
+.forecast-item:hover,.day-row:hover,.insight:hover{background:rgba(255,255,255,.07);transform:translateY(-2px)}
+.hourly-grid{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent}
+.weather-icon{animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-5px)}}@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.insight-grid{grid-template-columns:repeat(2,1fr)}.insight:last-child{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

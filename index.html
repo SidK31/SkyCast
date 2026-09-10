@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="SkyCast — fast, beautiful weather forecasts with hourly and 7-day weather data for cities around the world.">
   <meta name="theme-color" content="#07111f">
+  <meta name="color-scheme" content="dark light">
   <meta property="og:title" content="SkyCast — Weather, beautifully simple">
   <meta property="og:description" content="Check current conditions, hourly forecasts and the next 7 days for any city.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SkyCast">
+  <link rel="manifest" href="./manifest.webmanifest">
   <title>SkyCast — Weather, beautifully simple</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
   <main id="app" data-weather="clear">
@@ -44,6 +48,10 @@
 
     <footer>SkyCast • Weather data by Open-Meteo • Built for the web</footer>
   </main>
+  <script src="data.js"></script>
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  </script>
 </body>
 </html>

@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>SkyCast</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkyCast — fast, beautiful weather forecasts for any city.">
+  <title>SkyCast — Weather, beautifully simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <main id="app" data-weather="clear">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <header class="topbar">
+      <a class="brand" href="./"><span class="brand-mark">☁</span>Sky<span>Cast</span></a>
+      <div class="controls">
+        <button id="unitToggle" class="icon-btn" aria-label="Toggle temperature unit">°C</button>
+        <button id="locationBtn" class="location-btn" aria-label="Use my location">⌖ <span>My location</span></button>
+      </div>
+    </header>
 
-    <div class="container">
-        <h1>SkyCast</h1>
-        <p class="tagline">A simple weather lookup tool.</p>
-
-        <input type="text" id="cityInput" placeholder="Enter city name">
+    <section class="hero">
+      <p class="eyebrow">WEATHER, BEAUTIFULLY SIMPLE</p>
+      <h1>What's the sky<br><span>saying today?</span></h1>
+      <p class="hero-copy">Get a clear forecast for wherever you are, in seconds.</p>
+      <div class="search-wrap glass">
+        <span class="search-icon">⌕</span>
+        <input id="cityInput" type="search" autocomplete="off" placeholder="Search a city…" aria-label="City name">
         <button id="searchBtn">Search</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
 
-        <div id="result"></div>
-    </div>
+    <section id="result" aria-live="polite"></section>
 
-    <script src="script.js"></script>
+    <footer>SkyCast • Weather data by Open-Meteo • Built for the web</footer>
+  </main>
+  <script src="script.js"></script>
 </body>
-
 </html>

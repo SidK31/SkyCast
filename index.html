@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SkyCast — fast, beautiful weather forecasts with hourly and 7-day weather data for cities around the world.">
+  <meta name="description" content="SkyCast — fast, beautiful weather forecasts with hourly and 7-day weather data, weather insights and air quality.">
   <meta name="theme-color" content="#07111f">
   <meta name="color-scheme" content="dark light">
   <meta property="og:title" content="SkyCast — Weather, beautifully simple">
-  <meta property="og:description" content="Check current conditions, hourly forecasts and the next 7 days for any city.">
+  <meta property="og:description" content="Current weather, hourly trends, 7-day forecasts, weather insights and air quality.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SkyCast">
   <link rel="manifest" href="./manifest.webmanifest">
@@ -30,7 +30,6 @@
         <button id="locationBtn" class="location-btn" aria-label="Use my location">⌖ <span>My location</span></button>
       </div>
     </header>
-
     <section class="hero">
       <p class="eyebrow">WEATHER, BEAUTIFULLY SIMPLE</p>
       <h1>What's the sky<br><span>saying today?</span></h1>
@@ -42,14 +41,13 @@
       </div>
       <p id="status" class="status" aria-live="polite"></p>
     </section>
-
     <section id="quickCities" class="quick-section" aria-label="Saved and recent cities"></section>
     <section id="result" aria-live="polite"></section>
-
     <footer>SkyCast • Weather data by Open-Meteo • Built for the web</footer>
   </main>
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script src="enhance.js"></script>
   <script>
     if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
   </script>

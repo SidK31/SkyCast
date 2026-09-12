@@ -38,11 +38,11 @@
       <p class="eyebrow">WEATHER, BEAUTIFULLY SIMPLE</p>
       <h1>What's the sky<br><span>saying today?</span></h1>
       <p class="hero-copy">A clearer way to understand what's happening outside.</p>
-      <div class="search-wrap glass" id="searchForm">
+      <form class="search-wrap glass" id="searchForm">
         <span class="search-icon" aria-hidden="true">⌕</span>
         <input id="cityInput" type="search" autocomplete="off" enterkeyhint="search" placeholder="Search a city…" aria-label="City name">
-        <button id="searchBtn" type="button">Search</button>
-      </div>
+        <button id="searchBtn" type="submit">Search</button>
+      </form>
       <p id="status" class="status" aria-live="polite"></p>
     </section>
     <section id="quickCities" class="quick-section" aria-label="Saved and recent cities"></section>
@@ -50,6 +50,7 @@
     <footer>SkyCast <span>•</span> Weather data by Open-Meteo <span>•</span> Built for the web</footer>
   </main>
   <script src="script.js"></script>
+  <script src="smart.js"></script>
   <script>
     if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
   </script>

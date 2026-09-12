@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SkyCast — fast, beautiful weather forecasts with hourly and 7-day weather data, weather insights and air quality.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="SkyCast — beautiful, fast weather forecasts with live conditions, hourly trends, 7-day forecasts, UV and weather insights.">
   <meta name="theme-color" content="#07111f">
   <meta name="color-scheme" content="dark light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SkyCast">
   <meta property="og:title" content="SkyCast — Weather, beautifully simple">
-  <meta property="og:description" content="Current weather, hourly trends, 7-day forecasts, weather insights and air quality.">
+  <meta property="og:description" content="Live weather, hourly trends, 7-day forecasts, UV and useful weather insights.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SkyCast">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
   <link rel="manifest" href="./manifest.webmanifest">
   <title>SkyCast — Weather, beautifully simple</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,36 +23,39 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="app.css">
 </head>
-<body>
-  <main id="app" data-weather="clear">
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
+<body data-theme="dark">
+  <main id="app" data-weather="clear" data-day="day">
+    <div class="scene scene-one" aria-hidden="true"></div>
+    <div class="scene scene-two" aria-hidden="true"></div>
     <header class="topbar">
       <a class="brand" href="./" aria-label="SkyCast home"><span class="brand-mark">☁</span>Sky<span>Cast</span></a>
       <div class="controls">
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">☾</button>
+        <button id="themeToggle" class="icon-btn" aria-label="Switch to light theme" title="Switch to light theme">☾</button>
         <button id="unitToggle" class="icon-btn" aria-label="Toggle temperature unit">°C</button>
         <button id="locationBtn" class="location-btn" aria-label="Use my location">⌖ <span>My location</span></button>
       </div>
     </header>
+
     <section class="hero">
       <p class="eyebrow">WEATHER, BEAUTIFULLY SIMPLE</p>
       <h1>What's the sky<br><span>saying today?</span></h1>
-      <p class="hero-copy">Get a clear forecast for wherever you are, in seconds.</p>
-      <div class="search-wrap glass">
-        <span class="search-icon">⌕</span>
-        <input id="cityInput" type="search" autocomplete="off" placeholder="Search a city…" aria-label="City name">
-        <button id="searchBtn">Search</button>
-      </div>
+      <p class="hero-copy">A clearer way to understand what's happening outside.</p>
+      <form class="search-wrap glass" id="searchForm">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="cityInput" type="search" autocomplete="off" enterkeyhint="search" placeholder="Search a city…" aria-label="City name">
+        <button id="searchBtn" type="submit">Search</button>
+      </form>
       <p id="status" class="status" aria-live="polite"></p>
     </section>
+
     <section id="quickCities" class="quick-section" aria-label="Saved and recent cities"></section>
     <section id="result" aria-live="polite"></section>
-    <footer>SkyCast • Weather data by Open-Meteo • Built for the web</footer>
+
+    <footer>SkyCast <span>•</span> Weather data by Open-Meteo <span>•</span> Built for the web</footer>
   </main>
+
   <script src="data.js"></script>
   <script src="script.js"></script>
-  <script src="enhance.js"></script>
   <script>
     if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
   </script>

@@ -21,6 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="intelligence.css">
 </head>
 <body data-theme="dark">
   <main id="app" data-weather="clear" data-day="day">
@@ -51,6 +52,7 @@
   </main>
   <script src="script.js"></script>
   <script src="smart.js"></script>
+  <script>window.skycastGetWeather = () => typeof currentWeather !== 'undefined' ? currentWeather : null;</script>
   <script src="intelligence.js"></script>
   <script>
     if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));

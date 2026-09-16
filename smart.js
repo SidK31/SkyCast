@@ -37,6 +37,13 @@
     list.querySelectorAll('.suggestion').forEach(btn => btn.addEventListener('click', () => choose(Number(btn.dataset.index))));
   }
 
+  function search() {
+    const city = input.value.trim();
+    if (!city) return;
+    close();
+    if (typeof searchWeather === 'function') searchWeather(city);
+  }
+
   function choose(index) {
     const place = results[index];
     if (!place) return;
@@ -44,6 +51,12 @@
     close();
     if (typeof searchWeather === 'function') searchWeather(place.name);
   }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (active >= 0 && results.length) choose(active);
+    else search();
+  });
 
   async function suggest(query) {
     const clean = query.trim();

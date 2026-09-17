@@ -1,5 +1,5 @@
-const CACHE = "skycast-shell-v6";
-const SHELL = ["./","./index.html","./style.css","./intelligence.css","./script.js","./smart.js","./intelligence.js","./manifest.webmanifest","./icon.svg"];
+const CACHE = "skycast-shell-v7";
+const SHELL = ["./","./index.html","./style.css","./intelligence.css","./planner.css","./script.js","./smart.js","./intelligence.js","./planner.js","./manifest.webmanifest","./icon.svg"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
